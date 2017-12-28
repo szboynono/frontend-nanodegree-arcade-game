@@ -6,7 +6,21 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h2>Score: <span id="score">0</span></h2>
+    <div class="main-score">
+        <h2>Score: <span id="score">0</span></h2>
+        <h3>Highest: <span id="highest">0</span></h3>
+    </div> 
+    <div class="main-char">
+        <img src="images/char-boy.png" alt="boy" class="char-selected">
+        <img src="images/char-cat-girl.png" alt="g">
+        <img src="images/char-horn-girl.png" alt="g">
+        <img src="images/char-princess-girl.png" alt="g">
+        <img src="images/char-pink-girl.png" alt="g">
+    </div>
+    <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
     <script src="js/resources.js"></script>
     <script src="js/app.js"></script>
     <script src="js/engine.js"></script>

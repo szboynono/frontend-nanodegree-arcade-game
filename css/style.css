@@ -2,6 +2,17 @@ body {
     text-align: center;
 }
 
-canvas {
-    border: 1px solid black;
+.main-score {
+    float: left;
 }
+
+.main-char img {
+    height: 100px;
+}
+
+.char-selected {
+    transform: scale(2);  
+    transition: all .2s ease-in-out;
+}
+
+

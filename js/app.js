@@ -45,33 +45,49 @@ var Player = function(x,y){
     this.x = x;
     this.y = y;
     this.sprite = 'images/char-boy.png';
+    
+}
+//return to origin
+Player.prototype.goBack = function(){
+    this.x = 200;
+    this.y = 380;
+}
+
+//change character
+Player.prototype.changeChar = function(c){
+    this.sprite = c;
 }
 
 Player.prototype.update = function(){
     var oScore = document.querySelector('#score');
-    var temp = parseInt(oScore.innerHTML);
+    var oHigh = document.querySelector('#highest');
+    var score = parseInt(oScore.innerHTML);
+    var high = parseInt(oHigh.innerHTML);
     if(this.y < 50){
-        
-        temp++;
-        oScore.innerHTML = temp;
-        this.x = 200;
-        this.y = 380;
-        
+        score++;
+        if(score >= high){
+            high = score;
+        }
+        oHigh.innerHTML = high;
+        oScore.innerHTML = score;
+        this.goBack();
     }
     //onhit
     for(var i = 0; i < allEnemies.length; i++){
         if((this.x - 70 < allEnemies[i].x) && (this.x + 70 > allEnemies[i].x) && this.y === allEnemies[i].y ){
-            this.x = 200;
-            this.y = 380;
-            temp = 0;
-            oScore.innerHTML = temp;
+            this.goBack();
+            score = 0;
+            oScore.innerHTML = score;
         }
     }
+    
 }
 
 Player.prototype.render = function(){
     ctx.drawImage(Resources.get(this.sprite),this.x,this.y);
 }
+
+
 
 Player.prototype.handleInput = function(input){
     
@@ -102,17 +118,22 @@ Player.prototype.handleInput = function(input){
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
+var enemyY = [60,140,220];
 var allEnemies = [
-    new Enemy(60),
-    new Enemy(140),
-    new Enemy(220),
-    new Enemy(60),
-    new Enemy(140),
-    new Enemy(220),
-    
+    new Enemy(enemyY[0]),
+    new Enemy(enemyY[1]),
+    new Enemy(enemyY[2]),
+    new Enemy(enemyY[getRandomInt(0,2)])
 ];
 var player = new Player(200,380);
 
+
+//listen for click character
+$('.main-char').on('click','img', function(e){
+    $('.main-char img').removeClass();
+    $(this).addClass('char-selected');
+    player.changeChar($(this).attr('src'));
+});
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
