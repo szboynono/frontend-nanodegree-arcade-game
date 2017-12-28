@@ -77,6 +77,7 @@ Player.prototype.update = function(){
             this.goBack();
             score = 0;
             oScore.innerHTML = score;
+            $('#gem').html(0);
         }
     }
     
@@ -114,20 +115,42 @@ Player.prototype.handleInput = function(input){
     
 }
 
+////random use
+var locX = [0,100,200,300,400,500];
+var locY = [60,140,220,280];
 ////////////////////////////////GEMGEMGEM/////////////
+var Gem = function(x,y){
+    this.x = x;
+    this.y = y;
+    this.sprite = 'images/Gem Blue.png';
+}
+Gem.prototype.update = function(){
+    //onhit
+    if((this.x - 70 < player.x) && (this.x + 70 > player.x) && this.y === player.y ){
+        var numGems = parseInt($('#gem').html());
+        numGems++;
+        $('#gem').html(numGems);
+        this.x = locX[getRandomInt(0,5)];
+        this.y = locY[getRandomInt(0,3)];
+    }
+}
+Gem.prototype.render = function(){
+    ctx.drawImage(Resources.get(this.sprite),this.x,this.y);
+}
 
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-var enemyY = [60,140,220];
+var gem = new Gem(locX[getRandomInt(0,5)],locY[getRandomInt(0,3)]);
 var allEnemies = [
-    new Enemy(enemyY[0]),
-    new Enemy(enemyY[1]),
-    new Enemy(enemyY[2]),
-    new Enemy(enemyY[getRandomInt(0,2)])
+    new Enemy(locY[0]),
+    new Enemy(locY[1]),
+    new Enemy(locY[2]),
+    new Enemy(locY[getRandomInt(0,2)])
 ];
 var player = new Player(200,380);
+
 
 
 //listen for click character
