@@ -8,11 +8,14 @@ body {
 
 .main-char img {
     height: 100px;
+    margin-right: 20px;
 }
 
 .char-selected {
     transform: scale(2);  
     transition: all .2s ease-in-out;
+    background-image: url('../images/Selector.png');
+    background-size: contain;
 }
 
 

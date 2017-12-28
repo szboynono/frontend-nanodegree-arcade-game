@@ -15,7 +15,7 @@ var Enemy = function(y) {
     this.sprite = 'images/enemy-bug.png';
     this.x = getRandomInt(-400, 0);
     this.y = y;
-    this.speed = getRandomInt(100, 400);
+    this.speed = getRandomInt(100, 300);
 };
 
 // Update the enemy's position, required method for game
@@ -45,7 +45,6 @@ var Player = function(x,y){
     this.x = x;
     this.y = y;
     this.sprite = 'images/char-boy.png';
-    
 }
 //return to origin
 Player.prototype.goBack = function(){
@@ -114,6 +113,9 @@ Player.prototype.handleInput = function(input){
     
     
 }
+
+////////////////////////////////GEMGEMGEM/////////////
+
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
