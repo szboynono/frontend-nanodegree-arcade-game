@@ -1,6 +1,12 @@
-frontend-nanodegree-arcade-game
+Frogger Arcade-Game
 ===============================
+A simple Frogger game implemented with JavaScript. The images and the game engine are provided
+## Instruction
+- Click [here](https://szboynono.github.io/frontend-nanodegree-arcade-game/) to Play!
+- You are able to choose a character from the characters on the top of the page by clicking it.
+- Use the **up**,**down**,**left**,**right** keys on the key board to move the character.
+## Rules of the Game
+- The goal is to reach the river, everytime you reach the **river** you gain a score.
+- Try your best to not to touch with the bugs, if you touch the **bugs**, you will be returned to the Starting point and the score will be clear.
+- Player is also able to correct **gems** on the field. The number of gems you collected will be shown on the page.
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
-
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
