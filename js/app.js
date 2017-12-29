@@ -1,4 +1,4 @@
-//Random number
+//Generate Random number
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -56,7 +56,7 @@ Player.prototype.goBack = function(){
 Player.prototype.changeChar = function(c){
     this.sprite = c;
 }
-
+//handle different situations of the player
 Player.prototype.update = function(){
     var oScore = document.querySelector('#score');
     var oHigh = document.querySelector('#highest');
@@ -71,7 +71,7 @@ Player.prototype.update = function(){
         oScore.innerHTML = score;
         this.goBack();
     }
-    //onhit
+    //if the player crashes with one of the enemy return to start and clear score
     for(var i = 0; i < allEnemies.length; i++){
         if((this.x - 70 < allEnemies[i].x) && (this.x + 70 > allEnemies[i].x) && this.y === allEnemies[i].y ){
             this.goBack();
@@ -82,13 +82,13 @@ Player.prototype.update = function(){
     }
     
 }
-
+//rendering the page
 Player.prototype.render = function(){
     ctx.drawImage(Resources.get(this.sprite),this.x,this.y);
 }
 
 
-
+//react to the keep pressed
 Player.prototype.handleInput = function(input){
     
         switch(input){
@@ -115,17 +115,18 @@ Player.prototype.handleInput = function(input){
     
 }
 
-////random use
+////random use, some location of the field
 var locX = [0,100,200,300,400,500];
 var locY = [60,140,220,280];
-////////////////////////////////GEMGEMGEM/////////////
+/////////////////GEM CLass/////////////
 var Gem = function(x,y){
     this.x = x;
     this.y = y;
     this.sprite = 'images/Gem Orange.png';
 }
+//handle the situations of the gem.
 Gem.prototype.update = function(){
-    //onhit
+    //onhit, relocate the gem
     if((this.x - 70 < player.x) && (this.x + 70 > player.x) && this.y === player.y ){
         var numGems = parseInt($('#gem').html());
         numGems++;
@@ -137,7 +138,7 @@ Gem.prototype.update = function(){
 Gem.prototype.render = function(){
     ctx.drawImage(Resources.get(this.sprite),this.x,this.y);
 }
-
+//////////////GEM////////////
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
