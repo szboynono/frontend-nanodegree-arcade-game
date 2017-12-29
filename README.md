@@ -7,6 +7,6 @@ A simple Frogger game implemented with JavaScript. The images and the game engin
 - Use the **up**,**down**,**left**,**right** keys on the key board to move the character.
 ## Rules of the Game
 - The goal is to reach the river, everytime you reach the **river** you gain a score.
-- Try your best to not to touch with the bugs, if you touch the **bugs**, you will be returned to the Starting point and the score will be clear.
+- Try your best to not to crash with the bugs, if you touch the **bugs**, you will be returned to the Starting point and the score will be clear.
 - Player is also able to correct **gems** on the field. The number of gems you collected will be shown on the page.
 
