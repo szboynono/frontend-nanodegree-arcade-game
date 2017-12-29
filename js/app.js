@@ -122,7 +122,7 @@ var locY = [60,140,220,280];
 var Gem = function(x,y){
     this.x = x;
     this.y = y;
-    this.sprite = 'images/Gem Blue.png';
+    this.sprite = 'images/Gem Orange.png';
 }
 Gem.prototype.update = function(){
     //onhit
