@@ -1,5 +1,7 @@
+'use strict';
 //Generate Random number
 function getRandomInt(min, max) {
+    'use strict';
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min)) + min; 
